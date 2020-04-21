@@ -9,6 +9,7 @@ WORKDIR /opt
 RUN apk add --no-cache gettext
 
 COPY auth.conf auth.htpasswd launch.sh ./
+COPY enable_cors /etc/nginx/
 
 # make sure root login is disabled
 RUN sed -i -e 's/^root::/root:!:/' /etc/shadow
